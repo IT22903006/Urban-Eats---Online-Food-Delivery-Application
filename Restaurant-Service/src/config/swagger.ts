@@ -1,17 +1,16 @@
 import swaggerJSDoc from "swagger-jsdoc";
 
-const swaggerOptions: swaggerJSDoc.Options = {
+const options: swaggerJSDoc.Options = {
   definition: {
     openapi: "3.0.0",
     info: {
       title: "Restaurant Service API",
       version: "1.0.0",
-      description: "API documentation for the Restaurant microservice",
+      description: "API documentation for the Restaurant Service",
     },
     servers: [
       {
         url: "http://localhost:5001",
-        description: "Local server",
       },
     ],
     components: {
@@ -23,15 +22,10 @@ const swaggerOptions: swaggerJSDoc.Options = {
         },
       },
     },
-    security: [
-      {
-        bearerAuth: [],
-      },
-    ],
   },
-  apis: ["./src/routes/*.ts", "./src/models/*.ts"],
+  apis: ["src/routes/*.ts"],
 };
 
-const swaggerSpec = swaggerJSDoc(swaggerOptions);
+const swaggerSpec = swaggerJSDoc(options);
 
 export default swaggerSpec;
